@@ -1,0 +1,72 @@
+@media print {/*For A4 size paper*/
+  .visible-print  { display: inherit !important; }
+  .hidden-print   { display: none !important; }
+  div.boxLetter{    
+  	width: 40%;
+  	border: 1px solid #888888;
+  	margin-bottom: 15px;
+  	margin-top: 50px;
+   page-break-inside: avoid;
+}
+h2,h3,hr{display: none;}
+}
+	body{background-color: white;}
+	.boxLetter{box-shadow: 0 0 1px 1px #BBBBBB;
+		margin:10px;height: 250px;		
+		position:relative;
+		background-color: white;
+		padding: 5px;
+		vertical-align: top;
+	}
+	.aks{display: inline-block;position: absolute;top: 5px; right: 5px;
+		font-size: 60px; 	
+		color:white;				
+		padding-left:20px;padding-right:20px;		
+	}
+
+	.aksMatra{
+		display: inline-block;
+		position: absolute;
+		top: 150px; right: 5px;
+		font-size: 40px; 	
+		color:white;				
+		padding-left:20px;padding-right:20px;		
+	}
+
+	div.matra{
+		font-size: 60px; 	
+		color:#888888;
+		display: inline-block;				
+		padding-left: 10px;	
+	}
+	.exmWord{
+		position:absolute; left: 2px; bottom: 5px;		
+		font-size: 30px; 	
+		color:#888888;
+		background-color: white;
+		display: inline-block;	
+		margin:10px; 	
+		padding-left: 10px;	padding-right: 10px;
+	}
+	p.head1{
+		text-align: center;		
+		font-size: 30px; 	
+		color:white;
+		display: inline-block;
+		background-color: #999999; 
+		margin: auto;
+		}
+	.imgBox{
+			display: inline-block;vertical-align: middle; max-height: 200px;
+		}
+	.exPic{max-width: 150px;
+	 		max-height:120px;
+			display: inline-block;}
+	h2,h3{text-align: center; 
+			color: #777777;}
+	.boxLetter > button{position:absolute;
+			bottom:2px;
+			right:2px;
+			margin-left: }
+
+

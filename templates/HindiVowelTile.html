@@ -1,0 +1,16 @@
+<div class="boxLetter centered">
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 centered  imgBox">
+		<img  class="img-responsive" 
+				ng-src="images/{{akshar.exm}}" ng-show="!imgShow" ng-hide="akshar.word==''" >			
+		</img>		
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+		<button type="button" class="btn btn-secondary aks" 
+				ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML">			
+		</button>
+		<button type="button" class="btn btn-primary aksMatra" 
+			ng-bind-html="akshar.matra | safeHTML">				
+			</button>
+	</div> 	
+	<span class="exmWord" ng-bind-html=" akshar.word | safeHTML"></span>	
+</div>	
