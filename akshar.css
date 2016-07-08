@@ -8,8 +8,25 @@
   	margin-top: 50px;
    page-break-inside: avoid;
 }
+div.aksSettings{display: none;}
+
 h2,h3,hr{display: none;}
 }
+/*********************/
+
+	div.aksSettings{
+	display: block; 
+	position: fixed; top:0px; right:0px; 
+	width:auto; height: auto; 
+	padding: 10px; background-color: #BBBBBB;
+	z-index: 5;
+	color: #666666;
+	border-radius: 2px;
+	}
+	label.inpt{
+		margin-right: 20px;
+	}
+
 	body{background-color: white;}
 	.boxLetter{box-shadow: 0 0 1px 1px #BBBBBB;
 		margin:10px;height: 250px;		

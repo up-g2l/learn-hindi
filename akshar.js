@@ -1,6 +1,7 @@
 "use strict";
 	var myApp = angular.module('myApp',[]);	
-//Filter
+
+//Filters
 	myApp.filter('safeHTML',function($sce){
 	    return function(input){
 	        return $sce.trustAsHtml(input);
@@ -20,7 +21,7 @@
 	  };
 	});
 
-
+//Controllers
 
 		/* myApp.constant('HINDI_ALPHABETS', function($http){
 			 
@@ -39,9 +40,8 @@
 		$scope.isShuffled = false;
 		$scope.currAks = "&#2325;"
 		//$scope.aksConsonants = HINDI_ALPHABETS.aksConsonants;
-		$scope.aksConsonants = angular.copy(HINDI_ALPHABETS.aksConsonants);
-		$scope.aksConsOrdered = angular.copy(HINDI_ALPHABETS.aksConsonants);
-		$scope.aksVowels = HINDI_ALPHABETS.aksVowels;
+		$scope.aksConsonants = angular.copy(HINDI_ALPHABETS.aksConsonants);	
+		$scope.aksVowels = angular.copy(HINDI_ALPHABETS.aksVowels);
 		$scope.matraPattern = HINDI_ALPHABETS.matraPattern;
 		$scope.matra = HINDI_ALPHABETS.matra;
 		$scope.matras = HINDI_ALPHABETS.matras;
@@ -58,10 +58,14 @@
 			
 
 		$scope.toggleShuffle = function(){
-			if(!$scope.isShuffled) {  $scope.aksConsonants = shuffle($scope.aksConsonants); 
-									  $scope.isShuffled = true; 
-			}else{    $scope.aksConsonants = angular.copy($scope.aksConsOrdered)					   	
-					    $scope.isShuffled = false;
+			if(!$scope.isShuffled) {  
+				$scope.aksConsonants = shuffle($scope.aksConsonants); 
+				$scope.aksVowels = shuffle($scope.aksVowels);
+			  	$scope.isShuffled = true; 
+			}else{    
+				$scope.aksConsonants = angular.copy(HINDI_ALPHABETS.aksConsonants);		
+				$scope.aksVowels = angular.copy(HINDI_ALPHABETS.aksVowels);			   	
+				$scope.isShuffled = false;
 			   }
 
 		}
@@ -71,8 +75,7 @@
 			alert($scope.imageShow);
 		}
 
-		function shuffle (sourceArrayOrd) { //Fisher-Yates-Durstenfeld shuffle
-			var sourceArray = sourceArrayOrd;
+		function shuffle (sourceArray) { //Fisher-Yates-Durstenfeld shuffle		
 			
 			    for (var i = 0; i < sourceArray.length - 1; i++) {
 			        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
@@ -80,8 +83,7 @@
 			        var temp = sourceArray[j];
 			        sourceArray[j] = sourceArray[i];
 			        sourceArray[i] = temp;
-			    }
-			
+			    }			
 		    return sourceArray;
 		}		
 		
@@ -91,23 +93,19 @@
 
 
 	myApp.controller('tileCtrl',function($scope){
-		//$scope.imgShow = true; 
-		$scope.toggleShow = function (){$scope.imgShow = $scope.$parent.imageShow;
-			 alert("Accessing global "+$scope.$parent.imageShow +"; The local is "+$scope.imgShow);
-			 return $scope.imgShow;
-			//$scope.imgShow = !$scope.$parent.imageShow;
-		}
+		$scope.imgShow = true; 
 	});
 
 	myApp.controller('modalCtrl',function($scope){
 		$scope.akshar = $scope.$parent.akshar;
 	});
 
+//Directives
 
 	myApp.directive('hindiWordTile',function(){
 		return{
 			restrict: 'E',			
-			scope:{akshar:"=", imgdex:"=", imgShow:"=", action:"&"},
+			scope:{akshar:"=", imgdex:"=", action:"&"},
 			templateUrl : 'templates/WordTile.html',
 			controller: 'tileCtrl',
 			link:function(scope, element, attribute){				

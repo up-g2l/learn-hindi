@@ -28,25 +28,30 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
-
 	<div class="container-fluid">
-	<h2 class="head1" >Teach your child Hindi alphabets.</h2><hr>
+	  <div class="aksSettings">
+	  <label class="inpt"><input type="checkbox" ng-click="toggleShuffle()"> Randomize / Order </input></label>
+	  <label class="inpt"><input type="checkbox" > Show / hide all images </input></label>	 
+  </div>
+	<h2 class="head1" >Teach Hindi alphabets to your child.    
+	</h2><hr>
 	<h3 class="head1">
-	   <input type="checkbox" ng-click="toggleShuffle()"> Randomize / Order </input><br>
-	   <input type="checkbox" ng-click="toggleAllImg()"> Hide/Show Images</input>
+	   Vowels
 	</h3><hr>
-	<!--<div class="row centered" >	
+	<!-- All Vowels -->
+	<div class="row centered" >	
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 centered" ng-repeat="akshar in aksVowels">	
 		   <hindi-vowel-tile akshar="akshar" imgdex="$index"></hindi-vowel-tile>		
 		</div>
-	</div> -->
+	</div>
+	<!-- All Consonants -->
 	<h3 class="head1">Consonants</h3><hr>
 	<div class="row centered">	
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 centered" ng-repeat="akshar in aksConsonants">	
-		   <hindi-word-tile akshar="akshar" imgdex="$index" imgShow = "imageShow"></hindi-word-tile>		
+		   <hindi-word-tile akshar="akshar" imgdex="$index"></hindi-word-tile>		
 		</div>
 	</div> 
-
+	<!-- Modal to display matras -->
 	<app-modal akshar="akshar"></app-modal>
 </div>
 </body>
